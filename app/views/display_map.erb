@@ -1,0 +1,94 @@
+ <link rel="stylesheet" type="text/css" href="/css/display_map.css">
+ <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js"></script>
+ <script type="text/javascript" src="/js/display_map.js"></script>
+ <script> var lat = <%= @lat %></script>
+ <script> var lng = <%= @lng %></script>
+ <script> var url = "<%= @url %>"</script>
+ <script> var current_user = <%=FBHelper.get_fb_img(current_user.fb_id)%></script>
+
+ <div id = "content">
+
+  <div id="map-canvas"></div>
+</div>
+
+<div class="hover">Menu</div>
+
+<div>
+  <button class="setM">Add Tag</button>
+</div>
+
+
+<div id="whichMarker">
+  <h1 class="choser"> Chose a category </h1>
+  <div class="choose">
+    <div class="polaroid">
+      <img src="/img/pics/hotel.jpg">
+      <p class="label">Hotel</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="/img/pics/restaurant.jpg">
+      <p class="label">Restaurant</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="/img/pics/bar.jpg">
+      <p class="label">Nighlife</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="/img/pics/shopping.jpg">
+      <p class="label">Shopping</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="/img/pics/sight.jpg">
+      <p class="label">Sight</p>
+    </div>
+</div>
+
+  <button id="clicker" class="setM2">Tag Map</button>
+</div>
+
+<div id="whichMarker2">
+    <h1 class="choser"><%= @creator.name%>'s trip to <%= @map.city%></h1>
+    <div id="subtext">
+    <p class="description_text">Your friend <%= @creator.name%> is planning a trip to <%= @map.city%>. This map was created to collect travel recommendations from friends like you. By clicking "Add Tag" in the left upper corner of this map, you can add a tag to the map and help your friend have the best time ever!</p>
+    <p class="description_text">You also see all other tags by different friends of <%= @creator.name%> . Just click on the tag and discover what everyone else recommended so far.</p>
+    <p class="description_text">Take some time and tag your top travel recommendations for <%= @map.city%> in the categories hotels, restaurants, nighlife, shopping and sights.</p>
+  </div>
+<button id="clicker2" class="setM2">Start Tagging</button>
+</div>
+
+
+
+<div class = "enter_tip">
+  <form id="rece" name="recomendation" action="#" method="post">
+    <div class="title">
+      <input type="text" name="place" placeholder="Your Recommendation" required=true>
+    </div>
+
+    <div class="description">
+      <textarea name="description" placeholder="Description"></textarea>
+    </div>
+
+    <p class="subheading">Address</p>
+    <div class="adress">
+    </div>
+
+    <div>
+      <input id="lat" type="hidden" name="lat" readonly>
+      <input id="lng" type="hidden" name="lng" readonly>
+      <input id="url" type="hidden" name="url" readonly>
+      <input id="hiddenSelect" type="hidden" name="select" readonly>
+      <input id="user_id" type="hidden" name="user_id" value="<%=current_user.fb_id%>">
+      <input id="user_name" type="hidden" name="user_name" value="<%=current_user.name%>">
+    </div>  
+
+    <input id="submit_button2" type="submit" value="Add to Map">
+  </form>
+</div>
+
+<div class="infobox-wrapper">
+</div>
+

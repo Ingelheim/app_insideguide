@@ -1,0 +1,42 @@
+ <link rel="stylesheet" type="text/css" href="/css/application.css">
+ <script type="text/javascript" src="/js/application.js"></script>
+
+ <div id = "content">
+  <div id="map-canvas"></div>
+</div>
+<div id="connect">
+  <h1 class="header"></h1>
+
+  <p class="marketing_text">Well what are you waiting for?<br>Create your personal inside<strong>guide</strong><br>and let your friends tag their best city tips!</p>
+  <p class="marketing_text" id="new_text">Just copy your link from below and send it to your friends or post it on facebook:</p>
+
+  <form id="create_url" name="input" action="/create_map" method="post">
+    <input id="lat" type="hidden" name="latitude" val="">
+    <input id="lng" type="hidden" name="longtitude" val="">
+    <input id="city" type="hidden" name="city" val="">
+    <input id="submit_button" type="submit" value="Create Map">
+  </form>
+
+  <div id="url">www.insidegui.de/test</div>
+</div>
+
+<div class="slogan"><p>inside<strong>guide</strong></p></div>
+
+<% if session[:user_id] %>
+<div class="hover">Menu</div>
+<div class="enter" ><form><input type="text" placeholder="Where are you going?" id="enter" name="city" value="">
+</form> </div>
+
+<% else %>
+<div id="whichMarker2">
+    <h1 class="choser">Welcome to insiguide - your custom city guide!</h1>
+    <div id="subtext">
+    <p class="description_text">You agree that most travel guides are expensive and outdated? You stumbled upon more than one contrary recommendation online? You normally get the best travel tips from your friends but you have no convienient way of aggregating those tips?</p>
+    <p class="description_text">Now you have an easy way of aggregating your friends travel recommendations!</p>
+    <p class="description_text">Connect via facebook, enter your destination, create a map, share your unique link with your friends and and let them tag their most treasured travel recommendations for your dream destiny.</p>
+  </div>
+  <a class="fb" href="<%= FBHelper.get_login_link %>"><div id="fb" class="fb2"></div></a>
+</div>
+
+
+<% end %>

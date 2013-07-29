@@ -1,0 +1,20 @@
+<header>
+  <div class="nav">
+    <div class="top"></div>
+    <div class="bottom">
+      <a href="/">
+        <div class="minislogan">
+          <p>inside<strong>guide</strong></p>
+        </div>
+      </a>
+      <% if session[:user_id] %>
+      <img class="pic" src=<%=FBHelper.get_fb_img(current_user.fb_id)%>></div>
+      <div class="login-name">
+        <p>Logged in as <strong><%= current_user.name %></strong></p>
+      </div>
+      <div class="logout">
+        <strong><a href="/logout">Logout</a></strong>
+      </div>
+    </div>
+    <% end%>  
+  </header>
